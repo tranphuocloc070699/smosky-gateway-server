@@ -1,0 +1,35 @@
+spring:
+  application:
+    name: "gateway-server"
+  config:
+    import: "optional:configserver:http://localhost:8070/"
+  cloud:
+    gateway:
+      discovery:
+        locator:
+          enabled: false
+          lowerCaseServiceId: true
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+  endpoint:
+    gateway:
+      enabled: true
+  info:
+    env:
+      enabled: true
+
+info:
+  app:
+    name: "gateway-server"
+    description: "Smosky Gateway Server Application"
+    version: "1.0.0"
+
+#logging:
+#  level:
+#    com:
+#      smosky:
+#        gateway-server: DEBUG
